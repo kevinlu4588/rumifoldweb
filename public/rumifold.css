@@ -1,0 +1,108 @@
+/* RumiFold additions on top of the lab stylesheet (style.css). */
+.nd-pageheader { background-color: #4A3596 !important; color: #fff !important; }
+.nd-pageheader h1, .nd-pageheader address { color: #fff !important; }
+.nd-pageheader address a { color: #fff !important; text-decoration: none; border-bottom: 1px dashed rgba(255,255,255,0.4); }
+.nd-pageheader address a:hover { border-bottom: 1px solid #fff; }
+.nd-pagefooter { background-color: #E6E0F5 !important; color: #000 !important; }
+.nd-pagefooter a { color: #000 !important; }
+figcaption { font-size: 0.9em; margin-top: 10px; }
+.center_image { width: 100%; }
+:target { background-color: yellow; }
+
+/* video widget (as on folding.baulab.info) */
+.video-widget { margin: 0 auto; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; background: #FBFAF7; }
+.video-widget video { width: 100%; display: block; }
+.video-controls { display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #f8f8f8; border-top: 1px solid #ddd; font-size: 14px; }
+.video-controls button { border: none; background: none; cursor: pointer; font-size: 18px; padding: 2px 6px; line-height: 1; }
+.video-controls input[type=range] { flex: 1; cursor: pointer; accent-color: #4A3596; }
+.video-controls .vw-time { min-width: 70px; text-align: center; color: #555; font-size: 12px; }
+
+/* interactive example */
+.example-row { margin-top: 20px; }
+.mol-viewer { position: relative; width: 100%; height: 420px; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; }
+.viewer-controls { margin: 8px 0; }
+.viewer-controls .btn { margin: 0 4px 4px 0; cursor: pointer; }
+.small-note { font-size: 0.85em; color: #666; }
+.qa { border: 1px solid #ddd; border-radius: 8px; overflow: hidden; margin-bottom: 16px; }
+.qa-q, .qa-a { padding: 12px 14px; }
+.qa-q { background: #fafafa; border-bottom: 1px solid #ddd; }
+.qa-a { font-weight: 700; }
+.qa-who, .ex-who { display: block; font-size: 0.75em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #888; }
+.attn-table td, .attn-table th { font-size: 0.92em; }
+
+/* results table */
+.results-table { max-width: 760px; margin: 0 auto; }
+.results-table td, .results-table th { text-align: center; }
+.results-table td:first-child, .results-table th:first-child { text-align: left; }
+.results-table tr.ours td { font-weight: 700; background: #F1EEFA; }
+.results-table tr.sep td { text-align: left; color: #555; background: #fafafa; }
+
+/* example gallery */
+.gallery-head { margin-top: 28px; }
+.example { border: 1px solid #e0e0e0; border-left: 4px solid #bbb; border-radius: 6px; background: #fafafa; padding: 12px 16px; margin-bottom: 14px; }
+.example.good { border-left-color: #1B7F3A; } .example.partial { border-left-color: #D98A02; } .example.bad { border-left-color: #C0392B; }
+.example p { margin: 0 0 8px; }
+.example p:last-child { margin-bottom: 0; }
+.ex-head { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+.ex-id { font-weight: 700; }
+.ex-tag { font-size: 0.85em; color: #555; font-style: italic; }
+.ex-ref { color: #555; }
+
+/* folding bar charts */
+.fold-charts { max-width: 900px; margin: 0 auto; text-align: left; }
+.fold-charts .col-md-6 { margin-bottom: 16px; }
+.chart-title { font-weight: 700; font-size: 1.1em; }
+.chart-sub { font-size: 0.85em; color: #666; margin-bottom: 8px; }
+.bar { display: grid; grid-template-columns: 130px 1fr 50px; gap: 10px; align-items: center; margin: 7px 0; font-size: 0.92em; }
+.bar .track { display: block; height: 22px; border-radius: 4px; background: #f1f2f4; overflow: hidden; }
+.bar .fill { display: block; height: 100%; border-radius: 4px; background: #B9BEC6; }
+.bar .val { font-weight: 700; font-variant-numeric: tabular-nums; }
+.bar.amber .fill { background: #E09A3A; }
+.bar.ours .fill { background: #1F7A4C; }
+.bar.ours .name, .bar.ours .val { color: #1F7A4C; font-weight: 700; }
+
+/* mascot beside the naming section */
+.mascot { float: right; width: 150px; height: 150px; margin: 0 0 10px 24px; }
+@media (max-width: 575px) { .mascot { width: 110px; height: 110px; margin-left: 14px; } }
+
+/* shorter page header than the lab default */
+.nd-pageheader { padding-top: 1.5rem !important; padding-bottom: 1.25rem !important; margin-bottom: 1.5rem !important; }
+.nd-pageheader address { margin-bottom: 0; }
+
+/* attention plot under the subtilisin viewer */
+.attn-plot-wrap { margin: 6px 0 24px; }
+.attn-plot-title { font-weight: 700; font-size: 0.95em; margin-bottom: 4px; }
+.attn-readout { font-weight: 400; color: #666; margin-left: 10px; }
+.attn-plot { display: block; width: 100%; height: 150px; border-bottom: 1px solid #999; cursor: crosshair; }
+.attn-plot rect.b { fill: #9CCFB3; }
+.attn-plot rect.b.site { fill: #126B40; }
+.attn-plot rect.b.on { fill: #D9541E; }
+.attn-plot rect.hit { fill: transparent; }
+.attn-plot text { font-size: 13px; fill: #126B40; font-weight: 700; text-anchor: middle; }
+.attn-axis { display: flex; justify-content: space-between; font-size: 0.8em; color: #666; }
+
+/* space above sub-headings in the article body */
+.col > h3 { margin-top: 2.5ex; }
+
+/* "What were you trained on?" */
+.tro { border: 1px solid #ddd; border-radius: 8px; padding: 14px 16px 16px; margin: 18px 0 20px; background: #fafafa; }
+.tro-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+.tro-chip { font-size: 0.9em; padding: 4px 12px; border-radius: 999px; border: 1px solid #bbb; background: #fff; cursor: pointer; }
+.tro-chip[aria-selected="true"] { background: #4A3596; border-color: #4A3596; color: #fff; }
+.tro-flow { display: flex; align-items: stretch; gap: 10px; }
+.tro-node { flex: 1 1 0; min-width: 0; background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 10px 12px; }
+.tro-node.tro-out { flex: 2.2 1 0; border-color: #4A3596; }
+.tro-label { font-size: 0.72em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #888; margin-bottom: 8px; }
+.tro-seq { font-family: Menlo, Consolas, monospace; font-size: 0.82em; background: #F1F2F4; border-radius: 999px; padding: 4px 10px; overflow: hidden; white-space: nowrap; text-overflow: clip; }
+.tro-name { font-size: 0.85em; color: #555; margin-top: 8px; }
+.tro-mem { display: flex; gap: 2px; }
+.tro-mem i { flex: 1; height: 26px; background: #1F7A4C; border-radius: 2px; }
+.tro-mem i:nth-child(3n) { opacity: 0.45; } .tro-mem i:nth-child(4n+1) { opacity: 0.7; } .tro-mem i:nth-child(5n+2) { opacity: 0.3; }
+.tro-q { font-weight: 700; background: #FBE0D2; border: 1px solid #D9541E; border-radius: 12px; padding: 8px 10px; color: #5A2208; }
+.tro-reply { font-size: 0.98em; }
+.tro-tag { font-size: 0.82em; color: #4A3596; font-style: italic; margin-top: 8px; }
+.tro-arrow, .tro-plus { align-self: center; font-size: 1.5em; color: #888; flex: 0 0 auto; }
+@media (max-width: 860px) {
+  .tro-flow { flex-direction: column; }
+  .tro-arrow { transform: rotate(90deg); }
+}

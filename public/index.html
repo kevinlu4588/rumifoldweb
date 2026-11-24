@@ -2,20 +2,408 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Coming soon</title>
+<title>RumiFold: Teaching an LLM to Natively Fold Proteins and Reason About Their Function</title>
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<meta name="robots" content="noindex" />
-<link rel="icon" href="favicon.ico">
+<meta name="description" content="A chat model that folds proteins in its own hidden states, then reasons about their function in natural language." />
+<link rel="canonical" href="https://rumifold.baulab.info/" />
+<meta property="og:site_name" content="RumiFold" />
+<meta property="og:title" content="RumiFold: Teaching an LLM to Natively Fold Proteins and Reason About Their Function" />
+<meta property="og:description" content="A chat model that folds proteins in its own hidden states, then reasons about their function in natural language." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://rumifold.baulab.info/" />
+<meta property="og:image" content="https://rumifold.baulab.info/media/social_card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="RumiFold: a chat model that folds proteins in its own hidden states, then reasons about their function." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="RumiFold: Teaching an LLM to Natively Fold Proteins and Reason About Their Function" />
+<meta name="twitter:description" content="A chat model that folds proteins in its own hidden states, then reasons about their function in natural language." />
+<meta name="twitter:image" content="https://rumifold.baulab.info/media/social_card.png" />
+<meta name="twitter:image:alt" content="RumiFold: a chat model that folds proteins in its own hidden states, then reasons about their function." />
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
 <link href="style.css" rel="stylesheet">
+<link href="rumifold.css" rel="stylesheet">
 </head>
 <body class="nd-docs">
 <div class="nd-pageheader">
  <div class="container">
- <h1 class="lead">Coming soon</h1>
+ <h1 class="lead">
+ RumiFold: Teaching an LLM to Natively Fold Proteins and Reason About Their Function
+ </h1>
+<address>
+  <nobr><a href="https://kevinlu4588.github.io/">Kevin Lu</a>,</nobr>
+  <nobr><a href="https://baulab.info/">David Bau</a>*,</nobr>
+  <nobr><a href="https://wengong-jin.github.io/">Wengong Jin</a>*</nobr>
+ <br>
+  <nobr>Northeastern University</nobr>
+ <br>
+  <nobr style="font-size: 0.85em">*Co-advisors</nobr>
+</address>
  </div>
-</div>
+</div><!-- end nd-pageheader -->
+
 <div class="container">
-<p>Placeholder.</p>
+<div class="row justify-content-center text-center">
+
+<p>
+<a href="https://arxiv.org/abs/2611.29444" class="d-inline-block p-3 align-top" target="_blank"><img height="100" width="78" src="images/paper-thumb.png" style="border:1px solid; margin: 0 38px;" alt="Paper thumbnail"><br>ArXiv<br>Preprint</a>
+<a href="https://github.com/kevinlu4588/RumiFold" class="d-inline-block p-3 align-top" target="_blank"><img height="100" width="78" src="images/code-thumb.png" style="border:1px solid; margin: 0 38px; object-fit: cover;" alt="Code thumbnail"><br>Source Code<br>Github</a>
+<a href="https://huggingface.co/RumiFold" class="d-inline-block p-3 align-top" target="_blank"><img height="100" width="78" src="images/huggingface-thumb.png" style="border:1px solid; margin: 0 38px; object-fit: cover;" alt="Hugging Face thumbnail"><br>Model Weights &amp; Data<br>Hugging Face</a>
+</p>
+
+<div class="card" style="max-width: 1020px;">
+<div class="card-block">
+<h3>Can We Teach a Language Model to Fold Proteins?</h3>
+<p>
+Can we teach a general-purpose language model to fold proteins? And if so, what does learning to fold enable beyond structure prediction itself? We introduce RumiFold, a pretrained chat model that learns to predict protein structures directly from its own hidden states. RumiFold processes proteins through repeated folding passes, then uses these folded representations to answer questions in natural language. It achieves folding accuracy comparable to dedicated single-representation models such as SimpleFold, alongside state-of-the-art performance on Gene Ontology protein function prediction and free-text function description. We find that folding organizes the model's hidden states around protein function, creating an internal per-residue workspace that the model uses when it answers.
+</p>
+</div><!--card-block-->
+</div><!--card-->
+
+</div><!--row-->
+
+<div class="row">
+<div class="col">
+
+<figure class="center_image" style="margin-top: 30px">
+  <div class="video-widget" style="max-width: 560px;">
+    <video muted playsinline autoplay loop preload="auto" poster="media/rumifold_chat_poster.png">
+      <source src="media/rumifold_chat.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="video-controls">
+      <button class="vw-play" title="Play/Pause">&#9654;</button>
+      <input class="vw-scrub" type="range" min="0" max="1000" value="0" step="1">
+      <span class="vw-time">0:00 / 0:00</span>
+    </div>
+  </div>
+  <figcaption><strong>RumiFold folds, then answers.</strong> Given a protein sequence and a question, the model first folds the protein in its own hidden states, and then answers from that folded representation. The wording of the answer is simplified here for illustration.</figcaption>
+</figure>
+
+<h2>How Does RumiFold Work?</h2>
+
+<p>
+RumiFold is built on Qwen3-8B, a general-purpose chat model, fine-tuned with LoRA adapters. It has no pair representation, no multiple sequence alignment and no diffusion module. The whole computation happens in three steps.
+</p>
+
+<figure class="center_image" style="margin-top: 30px">
+  <div class="video-widget" style="max-width: 560px;">
+    <video muted playsinline autoplay loop preload="auto" poster="media/rumifold_architecture_poster.png">
+      <source src="media/rumifold_architecture.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="video-controls">
+      <button class="vw-play" title="Play/Pause">&#9654;</button>
+      <input class="vw-scrub" type="range" min="0" max="1000" value="0" step="1">
+      <span class="vw-time">0:00 / 0:00</span>
+    </div>
+  </div>
+  <figcaption><strong>The RumiFold architecture.</strong> The same weights fold the protein, then answer questions using the folded representations.</figcaption>
+</figure>
+
+<p>
+<strong>1. Embed.</strong> A frozen ESM-C encoder reads the amino-acid sequence. A small trained bridge turns its embeddings into protein tokens that the language model can read, one per residue.
+</p>
+<p>
+<strong>2. Fold.</strong> The language model processes the protein tokens in repeated passes with the same weights. A single linear head reads the backbone structure directly out of the hidden states.
+</p>
+<p>
+<strong>3. Answer.</strong> The same model then reads the question alongside its own folded hidden states and replies in natural language.
+</p>
+
+<h2>A Chat Model That Folds as Well as Dedicated Folding Models</h2>
+
+<p>
+We compare RumiFold with single-sequence folding models. It matches SimpleFold on FoldBench and CASP16. ESMFold, which uses a pair representation, remains ahead, and models given a multiple sequence alignment are stronger still.
+</p>
+
+<figure class="center_image" style="margin-top: 30px">
+  <div class="row fold-charts">
+    <div class="col-md-6">
+      <div class="chart-title">FoldBench</div>
+      <div class="chart-sub">TM-score, 334 targets</div>
+      <div class="bar"><span class="name">ESMFold</span><span class="track"><span class="fill" style="width:90%"></span></span><span class="val">0.871</span></div>
+      <div class="bar ours"><span class="name">RumiFold</span><span class="track"><span class="fill" style="width:80%"></span></span><span class="val">0.840</span></div>
+      <div class="bar amber"><span class="name">SimpleFold 3B</span><span class="track"><span class="fill" style="width:80%"></span></span><span class="val">0.840</span></div>
+      <div class="bar amber"><span class="name">SimpleFold 700M</span><span class="track"><span class="fill" style="width:77%"></span></span><span class="val">0.832</span></div>
+      <div class="bar"><span class="name">ESM3-open</span><span class="track"><span class="fill" style="width:61%"></span></span><span class="val">0.783</span></div>
+      <div class="bar"><span class="name">DPLM-2 3B</span><span class="track"><span class="fill" style="width:36%"></span></span><span class="val">0.709</span></div>
+    </div>
+    <div class="col-md-6">
+      <div class="chart-title">CASP16</div>
+      <div class="chart-sub">TM-score, 155 domains</div>
+      <div class="bar"><span class="name">ESMFold</span><span class="track"><span class="fill" style="width:88%"></span></span><span class="val">0.764</span></div>
+      <div class="bar ours"><span class="name">RumiFold</span><span class="track"><span class="fill" style="width:71%"></span></span><span class="val">0.714</span></div>
+      <div class="bar amber"><span class="name">SimpleFold 3B</span><span class="track"><span class="fill" style="width:69%"></span></span><span class="val">0.706</span></div>
+      <div class="bar amber"><span class="name">SimpleFold 700M</span><span class="track"><span class="fill" style="width:69%"></span></span><span class="val">0.706</span></div>
+      <div class="bar"><span class="name">ESM3-open</span><span class="track"><span class="fill" style="width:50%"></span></span><span class="val">0.651</span></div>
+      <div class="bar"><span class="name">DPLM-2 3B</span><span class="track"><span class="fill" style="width:16%"></span></span><span class="val">0.547</span></div>
+    </div>
+  </div>
+  <figcaption><strong>Folding accuracy of single-sequence models.</strong> Mean TM-score; higher is better. Bars start at 0.60 (FoldBench) and 0.50 (CASP16). With a multiple sequence alignment, AlphaFold3 reaches 0.937 and 0.858.</figcaption>
+</figure>
+
+<h2>Learning to Fold Makes the Model Better at Function</h2>
+
+<p>
+After folding training, we fine-tune RumiFold to predict function. On Gene Ontology prediction it is ahead of GO-GPT v2 and BioReason-Pro. The most informative comparison is the control: the same language model with the same ESM-C input and the same function data, but without folding training, scores lower. When describing proteins whose descriptions never appear in training, RumiFold is well ahead of Prot2Text-V2.
+</p>
+
+<figure class="center_image" style="margin-top: 30px">
+  <center><img src="media/function_results.png" style="width:100%; max-width:800px" alt="Bar charts. Gene Ontology weighted F1: Base Qwen with ESM-C 0.638, BioReason-Pro (RL) 0.655, GO-GPT v2 0.666, RumiFold 0.683. BLEU-4 on novel Prot2Text proteins: Prot2Text-V2 15.9, RumiFold 21.1."></center>
+  <figcaption><strong>Function prediction.</strong> Left: weighted F1 on the GO-GPT v2 Gene Ontology benchmark (bars start at 0.60). Right: BLEU-4 on Prot2Text test proteins whose reference description does not occur in training.</figcaption>
+</figure>
+
+<h2>Folding Organizes the Hidden States Around Function</h2>
+
+<p>
+Why does folding help? We compare how proteins are arranged in representation space before and after training. In the ESM-C features that the model reads, proteins of different function are mixed together. After learning to fold, with no function labels at all, they begin to separate by function. Function training then sharpens the separation.
+</p>
+
+<figure class="center_image" style="margin-top: 30px">
+  <center><img src="media/state_umap_three.png" style="width:100%; max-width:900px" alt="Three UMAP panels: ESM-C features, after learning to fold, and after Gene Ontology training."></center>
+  <figcaption><strong>Learning to fold separates proteins by function.</strong> UMAP of the same 23,084 proteins, coloured by molecular-function class: (a) the ESM-C layer the model reads; (b) RumiFold after folding training only; (c) the same model after Gene Ontology fine-tuning. The percentage is the share of a test protein's ten nearest training proteins that carry its class; chance is 4%.</figcaption>
+</figure>
+
+<h2>RumiFold Uses Its Folding Workspace When It Answers</h2>
+
+<p>
+The folded hidden states are not only organized by function; the model reads them. Take subtilisin Carlsberg, a bacterial protease. Its three catalytic residues, Asp137, His168 and Ser325, are 188 positions apart in the sequence and side by side in the fold. When RumiFold names the function of subtilisin, its attention falls on exactly those three. Below, the structure is coloured by how much RumiFold attends to each residue while it writes its answer. Drag to rotate, scroll to zoom.
+</p>
+
+<div class="row example-row">
+  <div class="col-md-7">
+    <div id="viewer" class="mol-viewer"></div>
+    <div class="viewer-controls">
+      <button type="button" class="btn btn-sm btn-secondary active" data-mode="attention">Colour by attention</button>
+      <button type="button" class="btn btn-sm btn-secondary" data-mode="plain">Plain</button>
+      <button type="button" class="btn btn-sm btn-secondary" data-mode="triad">Zoom to catalytic triad</button>
+      <button type="button" class="btn btn-sm btn-secondary" data-mode="spin">Spin</button>
+    </div>
+    <p class="small-note">Structure shown: AlphaFold Database model of the mature enzyme (residues 106&ndash;379), for display. Colour: share of the answer's attention on each residue, from RumiFold.</p>
+  </div>
+  <div class="col-md-5">
+    <div class="qa">
+      <div class="qa-q"><span class="qa-who">Question</span>Which GO molecular-function terms describe this protein?</div>
+      <div class="qa-a"><span class="qa-who">RumiFold</span>protein binding; serine-type endopeptidase activity</div>
+    </div>
+    <table class="table table-sm attn-table">
+      <thead><tr><th>Residue</th><th>Role</th><th>Share of attention</th></tr></thead>
+      <tbody>
+        <tr><td>Asp137</td><td>catalytic triad</td><td id="attn-0"></td></tr>
+        <tr><td>His168</td><td>catalytic triad</td><td id="attn-1"></td></tr>
+        <tr><td>Ser325</td><td>catalytic triad</td><td id="attn-2"></td></tr>
+        <tr><td colspan="2">Average residue</td><td id="attn-avg"></td></tr>
+      </tbody>
+    </table>
+  </div>
 </div>
+
+<div class="attn-plot-wrap">
+  <div class="attn-plot-title">Share of the answer's attention on each residue <span id="attn-readout" class="attn-readout">Hover over the plot; click a bar to find that residue in the structure.</span></div>
+  <svg id="attn-plot" class="attn-plot" viewBox="0 0 1000 170" preserveAspectRatio="none" role="img" aria-label="Bar plot of RumiFold's attention along the subtilisin sequence, residues 106 to 379, with peaks at Asp137, His168 and Ser325."></svg>
+  <div class="attn-axis"><span>106</span><span>position in the sequence</span><span>379</span></div>
+</div>
+
+<p>
+To test whether this attention matters, we mutate the catalytic residues of 1,448 held-out enzymes to alanine. The answer &ldquo;catalytic&rdquo; disappears for 32% of them, against 3% when random residues are mutated. Restoring the folded memory at those residues alone, while leaving the mutated sequence in place, recovers 90% of the lost answers.
+</p>
+
+<h3>Editing the Memory Changes the Answer</h3>
+
+<p>
+If the answer is read from the memory, writing to the memory should change it. Each entry of the memory has a key and a value, and we edit only the values. For each of five molecular functions we find one direction in the memory's value space: the mean value vector of proteins that have the function, minus the mean over proteins that do not. We then add that direction to the values of held-out proteins that lack the function, about 2,600 per function, leave the keys untouched, and ask what the protein does.
+</p>
+
+<figure class="center_image" style="margin-top: 30px">
+  <div class="video-widget" style="max-width: 560px;">
+    <video muted playsinline autoplay loop preload="auto" poster="media/rumifold_workspace_poster.png">
+      <source src="media/rumifold_workspace.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="video-controls">
+      <button class="vw-play" title="Play/Pause">&#9654;</button>
+      <input class="vw-scrub" type="range" min="0" max="1000" value="0" step="1">
+      <span class="vw-time">0:00 / 0:00</span>
+    </div>
+  </div>
+  <figcaption><strong>From attention to interventions.</strong> Step 1: when RumiFold names the function of subtilisin, its attention falls on the catalytic triad. Steps 2 and 3: mutating the catalytic residues removes the answer, and restoring the original memory at those residues alone brings it back. Steps 4 and 5: a function's direction in the memory's value space is the difference of two means, and adding it to a protein's values makes the model write that function. The subtilisin structure is the AlphaFold Database model, coloured by RumiFold's attention; the short sequence and the scatter are schematics; the percentages are measured.</figcaption>
+</figure>
+
+<p>
+The model then writes the added function: for 76% of proteins given the RNA-binding direction and 46% for calcium binding, down to 9% for ATP binding, the weakest of the five. The edit is not precise. It also disturbs other answers: proteins keep only 14 to 57% of the terms they wrote before the edit, against 84 to 89% under a random direction.
+</p>
+
+<h3>A Protein Held Out of Training: TMEM68</h3>
+
+<p>
+Human TMEM68 and its homologues were excluded from residue and function training, and the experiments that identified its catalytic histidine were published in 2023. When RumiFold names the function of TMEM68, 11% of the answer's attention is on His130, more than on any other of the 324 residues. Removing His130 from the folding memory lowers the probability of answering yes for catalytic activity from 0.85 to 0.65.
+</p>
+
+<figure class="center_image" style="margin-top: 30px">
+  <div class="video-widget" style="max-width: 560px;">
+    <video muted playsinline autoplay loop preload="auto" poster="media/rumifold_tmem68_poster.png">
+      <source src="media/rumifold_tmem68.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="video-controls">
+      <button class="vw-play" title="Play/Pause">&#9654;</button>
+      <input class="vw-scrub" type="range" min="0" max="1000" value="0" step="1">
+      <span class="vw-time">0:00 / 0:00</span>
+    </div>
+  </div>
+  <figcaption><strong>TMEM68, read and then edited.</strong> RumiFold's answer attends most to His130, and wiping His130 from the folding memory lowers the probability of the answer. The structure shown is the AlphaFold Database model, coloured by RumiFold's attention; the attention plot is the one in the figure below.</figcaption>
+</figure>
+
+<figure class="center_image" style="margin-top: 30px">
+  <center><img src="media/tmem68_fig.png" style="width:100%; max-width:950px" alt="RumiFold's attention along the TMEM68 sequence peaks at His130; wiping His130 lowers the probability of the answer."></center>
+  <figcaption><strong>RumiFold reads the active site of TMEM68.</strong> (a) Share of the answer's attention per residue. (b) The effect of wiping His130 from the folding memory.</figcaption>
+</figure>
+
+<h2>Example Answers</h2>
+
+<p>
+These are answers from RumiFold on held-out proteins, next to the reference. We include the mistakes: the typical error is getting the kind of protein right and one specific wrong.
+</p>
+
+<h3 class="gallery-head">Describing function in free text</h3>
+<p class="small-note">Novel Prot2Text test proteins, whose reference text does not occur in training.</p>
+
+<div class="example good">
+  <div class="ex-head"><span class="ex-id">P0A625</span><span class="ex-tag">Right</span></div>
+  <p><span class="ex-who">RumiFold</span>Part of the binding-protein-dependent transport system for molybdenum; probably responsible for the translocation of the substrate across the membrane.</p>
+  <p class="ex-ref"><span class="ex-who">Reference</span>Part of the binding-protein-dependent transport system ModABCD for molybdenum; probably responsible for the translocation of the substrate across the membrane.</p>
+</div>
+<div class="example partial">
+  <div class="ex-head"><span class="ex-id">P0AE25</span><span class="ex-tag">Right mechanism, wrong substrate</span></div>
+  <p><span class="ex-who">RumiFold</span>Uptake of galactose across the boundary membrane with the concomitant transport of protons into the cell (symport system).</p>
+  <p class="ex-ref"><span class="ex-who">Reference</span>Uptake of L-arabinose across the cytoplasmic membrane with the concomitant transport of protons into the cell (symport system).</p>
+</div>
+<div class="example partial">
+  <div class="ex-head"><span class="ex-id">O31266</span><span class="ex-tag">Right enzyme class, wrong substrate</span></div>
+  <p><span class="ex-who">RumiFold</span>Ring-cleaving dioxygenase involved in oxoquinoline degradation and utilization.</p>
+  <p class="ex-ref"><span class="ex-who">Reference</span>Ring-cleaving dioxygenase involved in quinaldine degradation and utilization.</p>
+</div>
+<div class="example bad">
+  <div class="ex-head"><span class="ex-id">O13563</span><span class="ex-tag">Wrong</span></div>
+  <p><span class="ex-who">RumiFold</span>Matches the consensus sequence of the alpha chain of parvalbumins.</p>
+  <p class="ex-ref"><span class="ex-who">Reference</span>Component of the 19S cap proteasome complex which acts as a regulatory subunit of the 26S proteasome, involved in the ATP-dependent degradation of ubiquitinated proteins.</p>
+</div>
+
+<h3 class="gallery-head">From residues to function</h3>
+<p class="small-note">During function training the model can write out the residues it finds, what they imply, and then the function. Answers from an earlier checkpoint, lightly reformatted.</p>
+
+<div class="example good">
+  <div class="ex-head"><span class="ex-id">Q5VV17, a deubiquitinase</span><span class="ex-tag">Right</span></div>
+  <p><span class="ex-who">RumiFold</span><b>Observations:</b> active site: Asp317, Cys320, His431 (C&alpha;&ndash;C&alpha; 5&ndash;9&nbsp;&Aring;, one cluster). <b>Inference:</b> The residues form a catalytic site of 3 residues. The chemistry is a hydrolysis. <b>Function:</b> catalytic activity &rsaquo; hydrolase activity &rsaquo; peptidase activity &rsaquo; ubiquitin-like protein peptidase activity &rsaquo; deubiquitinase activity &rsaquo; cysteine-type deubiquitinase activity. EC 3.4.19.12.</p>
+  <p class="ex-ref"><span class="ex-who">Reference</span>The same three residues (5&ndash;10&nbsp;&Aring;), the same lineage and EC number.</p>
+</div>
+<div class="example partial">
+  <div class="ex-head"><span class="ex-id">D0E8I4, an iron-dependent dioxygenase</span><span class="ex-tag">Right class, wrong enzyme</span></div>
+  <p><span class="ex-who">RumiFold</span><b>Observations:</b> binds Fe cation: His118, Asp120, His198 (C&alpha;&ndash;C&alpha; 6&ndash;8&nbsp;&Aring;, one cluster). <b>Inference:</b> The residues form an iron centre of 3 residues. The chemistry is an oxidoreduction. <b>Function:</b> catalytic activity &rsaquo; oxidoreductase activity &rsaquo; &hellip; &rsaquo; 2-oxoglutarate-dependent dioxygenase activity. EC 1.14.11.55.</p>
+  <p class="ex-ref"><span class="ex-who">Reference</span>The same residues and lineage, but EC 1.14.11.46, (2-aminoethyl)phosphonate dioxygenase.</p>
+</div>
+
+<h2>&ldquo;What Were You Trained On?&rdquo;</h2>
+
+<p>
+We gave the Gene Ontology model a protein and then asked it a question that has nothing to do with proteins: &ldquo;What were you trained on?&rdquo; The protein is never mentioned in the text. The model folds it as usual, and the only words in the prompt are the question. The reply changes with the protein. Pick one:
+</p>
+
+<div class="tro">
+  <div class="tro-chips" role="tablist" aria-label="Protein in context"></div>
+  <div class="tro-flow">
+    <div class="tro-node">
+      <div class="tro-label">Protein (not shown as text)</div>
+      <div class="tro-seq"><span id="tro-seq"></span>&hellip;</div>
+      <div class="tro-name" id="tro-name"></div>
+    </div>
+    <div class="tro-arrow">&rarr;</div>
+    <div class="tro-node">
+      <div class="tro-label">RumiFold folds it</div>
+      <div class="tro-mem" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="tro-name">folded memory</div>
+    </div>
+    <div class="tro-plus">+</div>
+    <div class="tro-node">
+      <div class="tro-label">The whole text prompt</div>
+      <div class="tro-q">What were you trained on?</div>
+    </div>
+    <div class="tro-arrow">&rarr;</div>
+    <div class="tro-node tro-out">
+      <div class="tro-label">RumiFold replies</div>
+      <div class="tro-reply" id="tro-reply" aria-live="polite"></div>
+      <div class="tro-tag" id="tro-tag"></div>
+    </div>
+  </div>
+</div>
+
+<p>
+With insulin in context it says it was trained as a nurse. With ACE2, a peptidase, it answers as if it were the enzyme and lists its substrates. Over 20 proteins, 8 replies describe medical or clinical training, 6 are the stock reply of a language model, and one, for T4 lysozyme, lists protein sequence and structure data, which is the nearest to the truth. These are single samples with labels assigned by hand, so they are anecdotes and not a measured effect. We include them because they show the folded memory reaching into answers it was never trained to inform, which is one face of the cost to general language ability.
+</p>
+
+<h2>Discussion</h2>
+
+<p>
+RumiFold shows that a general-purpose language model can learn to fold proteins in its own hidden states, and that doing so gives it a biologically grounded workspace for reasoning about function. It also has clear limits: it predicts backbone structure only, it trails models that use a pair representation or an alignment, and protein training costs it several points on general language benchmarks. We see RumiFold as a step toward <em>native biomolecular intelligence</em>, where protein-based computation and language-based reasoning become integrated capabilities of general-purpose language models.
+</p>
+
+<h2>Why &ldquo;RumiFold&rdquo;?</h2>
+
+<img src="images/rumifold-icon.png" alt="The RumiFold mascot: a small cow inside a circular arrow." class="mascot">
+<p>
+The name is short for <em>RuminantFold</em>. A ruminant is an animal, such as a cow, that digests its food in more than one pass: it chews and swallows, brings the food back up, and chews it again before it can use what the food contains.
+</p>
+<p>
+We think of RumiFold the same way. Many language models <em>ingest</em> proteins: they take a sequence in as text or as embeddings and answer straight away. RumiFold <em>digests</em> them. It passes the protein through its own layers more than once, folding it in its hidden states, and it answers only after that work is done. The circular arrow around the mascot is that repeated pass.
+</p>
+
+<h2 style="clear: both">How to cite</h2>
+
+<p>The paper can be cited as follows.</p>
+
+<div class="card">
+<h3 class="card-header">bibliography</h3>
+<div class="card-block">
+<p style="text-indent: -3em; margin-left: 3em;" class="card-text clickselect">
+Lu, K., Bau, D., &amp; Jin, W. (2026). RumiFold: Teaching an LLM to Natively Fold Proteins and Reason About Their Function. <em>arXiv preprint arXiv:2611.29444</em>.
+</p>
+</div>
+<h3 class="card-header">bibtex</h3>
+<div class="card-block">
+<pre class="card-text clickselect">
+@article{lu2026rumifold,
+  title={RumiFold: Teaching an LLM to Natively Fold Proteins and Reason About Their Function},
+  author={Lu, Kevin and Bau, David and Jin, Wengong},
+  journal={arXiv preprint arXiv:2611.29444},
+  year={2026}
+}
+</pre>
+</div>
+</div>
+
+</div>
+</div><!--row -->
+</div> <!-- container -->
+
+<footer class="nd-pagefooter">
+  <div class="row">
+    <div class="col-6 col-md text-center">
+      <a href="https://baulab.info/">About the Bau Lab</a>
+    </div>
+  </div>
+</footer>
+
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/3Dmol/2.4.2/3Dmol-min.js"></script>
+<script src="rumifold.js"></script>
 </html>
